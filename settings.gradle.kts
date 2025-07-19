@@ -21,4 +21,11 @@ dependencyResolutionManagement {
 
 rootProject.name = "NotiMind"
 include(":app")
- 
+include(":core:model")
+include(":core:data")
+include(":core:database")
+include(":feature:notification")
+include(":feature:permissions")
+include(":feature:settings")
+include(":feature:summary")
+include(":ui:common")
