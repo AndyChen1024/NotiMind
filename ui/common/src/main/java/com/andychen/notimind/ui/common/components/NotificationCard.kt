@@ -23,12 +23,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.andychen.notimind.ui.theme.extendedColors
-import java.time.format.DateTimeFormatter
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 @Composable
 fun NotificationCard(
@@ -43,17 +41,17 @@ fun NotificationCard(
 ) {
     val readColor by animateColorAsState(
         targetValue = if (isRead) 
-            MaterialTheme.extendedColors.notificationRead 
+            MaterialTheme.colorScheme.surfaceVariant 
         else 
-            MaterialTheme.extendedColors.notificationUnread,
+            MaterialTheme.colorScheme.surface,
         animationSpec = tween(300),
         label = "readColorAnimation"
     )
     
     val importanceColor = when (importance) {
-        2 -> MaterialTheme.extendedColors.highlightImportant
-        1 -> MaterialTheme.extendedColors.highlightMedium
-        else -> MaterialTheme.extendedColors.highlightLow
+        2 -> MaterialTheme.colorScheme.error
+        1 -> MaterialTheme.colorScheme.primary
+        else -> MaterialTheme.colorScheme.outline
     }
     
     Card(
